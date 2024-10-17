@@ -1,0 +1,380 @@
+
+        <!-- header -->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <div class="nav-container" style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+                    <!-- Logo -->
+                    <a href="#">
+                        <img src="../../assets/img/logo.png" style="width: 15%; height: 15%; margin-bottom: 0%;" alt="Logo">
+                    </a>
+                
+                    <!-- Navigation Menu -->
+                    <div class="nav__menu" id="nav-menu" style="flex-grow: 1;">
+                        <ul class="nav__list" style="list-style: none; display: flex; justify-content: flex-end; gap: 30px;">
+                            <li class="nav__item">
+                                <a href="#home" class="nav__link">ACCUEIL</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#about" class="nav__link">PRESENTATION</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#faqs" class="nav__link">FAQs</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#contact" class="nav__link">CONTACT</a>
+                            </li>
+                            <li class="nav__item">
+                                <a (click)="navigateToLogin()" class="nav__link">LOGIN</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>                
+
+                <div class="nav__btns">
+                    <!-- theme change -->
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main">
+            <!-- home -->
+            <section class="home" id="home">
+                <div class="home__container container grid">
+                    <img src="../../assets/img/home.png" alt="" class="home__img">
+
+                    <div class="home__data">
+                        <h1 class="home__title" style="font-size: 40px;">
+                            Gestion de la Livraison Rapide et Efficace
+                        </h1>
+                        <p class="home__description" style="text-align: justify;">
+                            Gérez et suivez vos livraisons en temps réel. Nous offrons une solution intuitive pour les administrateurs, livreurs et clients, garantissant une livraison sans souci.
+                        </p>
+                        <a href="#about" class="button button--flex">
+                            En savoir plus <i class="ri-arrow-right-down-line button__icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="home__social">
+                        <span class="home__social-follow">M'abonner</span>
+
+                        <div class="home__social-links">
+                            <a href="https://www.linkedin.com/in/roy-deblina/" target="_blank" class="home__social-link">
+                                <i class="ri-linkedin-fill"></i>
+                            </a>
+                            <a href="https://github.com/deblinaroy11" target="_blank" class="home__social-link">
+                                <i class="ri-github-line"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+                       <!-- about -->
+                       <section class="about section container" id="about">
+                        <div class="about__container grid">
+                            <img src="../../assets/img/about.png" alt="eDeliver" class="about__img">
+                    
+                            <div class="about__data">
+                                <h2 class="section_title about_title">
+                                    Qui sommes-nous & pourquoi nous choisir
+                                </h2>
+
+                                <br>
+                    
+                                <p class="about__description" style="text-align: justify;">
+                                    Nous sommes spécialisés dans la gestion de la livraison à domicile et offrons un service fiable qui permet à nos clients de suivre leurs commandes en toute confiance.
+                                </p>
+                    
+                                <div class="about__details">
+                                    <p class="about__details-description">
+                                        <i class="ri-checkbox-fill about__details-icon"></i>
+                                        Livraison toujours à l'heure.
+                                    </p>
+                                    <p class="about__details-description">
+                                        <i class="ri-checkbox-fill about__details-icon"></i>
+                                        Suivi en temps réel de vos commandes.
+                                    </p>
+                                    <p class="about__details-description">
+                                        <i class="ri-checkbox-fill about__details-icon"></i>
+                                        Notifications sur l'état de votre livraison.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+            <section class="steps section container">
+                <div class="steps__bg">
+                    <h2 class="section__title-center steps__title">
+                        Étapes pour recevoir vos <br> produits facilement
+                    </h2>
+            
+                    <div class="steps__container grid">
+                        <div class="steps__card">
+                            <div class="steps__card-number">01</div>
+                            <h3 class="steps__card-title">Sélectionnez un produit</h3>
+                            <p class="steps__card-description" style="text-align: justify;">
+                                Choisissez parmi notre large gamme de produits disponibles pour la livraison.
+                            </p>
+                        </div>
+            
+                        <div class="steps__card">
+                            <div class="steps__card-number">02</div>
+                            <h3 class="steps__card-title">Passez votre commande</h3>
+                            <p class="steps__card-description" style="text-align: justify;">
+                                Une fois votre commande passée, nous préparons l'expédition rapidement.
+                            </p>
+                        </div>
+            
+                        <div class="steps__card">
+                            <div class="steps__card-number">03</div>
+                            <h3 class="steps__card-title">Recevez votre livraison</h3>
+                            <p class="steps__card-description" style="text-align: justify;">
+                                Notre processus de livraison est simple, vous recevez vos produits directement chez vous.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="questions section" id="faqs"> 
+                <h2 class="section_title-center questions_title container">
+                    Questions fréquentes <br> que l'on pose souvent
+                </h2>
+            
+                <div class="questions__container container grid">
+                    <div class="questions__group">
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    Pourquoi ma commande est-elle en retard ?
+                                </h3>
+                            </header>
+            
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    Il peut y avoir plusieurs raisons pour lesquelles votre commande est en retard, y compris des problèmes de logistique ou des conditions météorologiques imprévues.
+                                </p>
+                            </div>
+                        </div>
+            
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    Comment suivre ma livraison ?
+                                </h3>
+                            </header>
+            
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    Vous pouvez suivre votre livraison en utilisant le lien de suivi fourni dans l'email de confirmation de votre commande.
+                                </p>
+                            </div>
+                        </div>
+            
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    Que faire si ma livraison est endommagée ?
+                                </h3>
+                            </header>
+            
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    Si votre livraison est endommagée, veuillez contacter notre service client dans les plus brefs délais pour organiser un retour ou un échange.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="questions__group">
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    Quels sont les délais de livraison ?
+                                </h3>
+                            </header>
+            
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    Nos délais de livraison varient en fonction de votre emplacement, mais nous nous efforçons de livrer toutes les commandes dans les 3 à 5 jours ouvrables.
+                                </p>
+                            </div>
+                        </div>
+            
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    Je peux modifier l'adresse de livraison après passation de ma commande ?
+                                </h3>
+                            </header>
+            
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    Si vous devez modifier votre adresse de livraison, veuillez nous contacter immédiatement pour voir si cela est possible avant l'expédition.
+                                </p>
+                            </div>
+                        </div>
+            
+                        <div class="questions__item">
+                            <header class="questions__header">
+                                <i class="ri-add-line questions__icon"></i>
+                                <h3 class="questions__item-title">
+                                    Quels modes de paiement acceptez-vous ?
+                                </h3>
+                            </header>
+            
+                            <div class="questions__content">
+                                <p class="questions__description">
+                                    Nous acceptons plusieurs modes de paiement, y compris les cartes de crédit, PayPal, et les virements bancaires.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Contact-->
+            <section class="contact section container" id="contact">                
+                <div class="contact__container grid">
+                    <div class="contact__box">
+                        <h2 class="section__title">
+                            Reach out to me today <br> via any of the given <br> information
+                        </h2>
+
+                        <div class="contact__data">
+                            <div class="contact__information">
+                                <h3 class="contact__subtitle">Call us for instant support</h3>
+                                <span class="contact__description">
+                                    <i class="ri-phone-line contact__icon"></i>
+                                    +91 8670 200 393
+                                </span>
+                            </div>
+
+                            <div class="contact__information">
+                                <h3 class="contact__subtitle">Write me by mail</h3>
+                                <span class="contact__description">
+                                    <i class="ri-mail-line contact__icon"></i>
+                                    deblinaroyy@email.com
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form action="" class="contact__form">
+                        <div class="contact__inputs">
+                            <div class="contact__content">
+                                <input type="email" placeholder=" " class="contact__input">
+                                <label for="" class="contact__label">Email</label>
+                            </div>
+
+                            <div class="contact__content">
+                                <input type="text" placeholder=" " class="contact__input">
+                                <label for="" class="contact__label">Subject</label>
+                            </div>
+
+                            <div class="contact__content contact__area">
+                                <textarea name="message" placeholder=" " class="contact__input"></textarea>                              
+                                <label for="" class="contact__label">Message</label>
+                            </div>
+                        </div>
+
+                        <button class="button button--flex">
+                            Send Message
+                            <i class="ri-arrow-right-up-line button__icon"></i>
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!--footer-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo">
+                        <i class="ri-leaf-line footer__logo-icon"></i> Plantex
+                    </a>
+
+                    <h3 class="footer__title">
+                        Subscribe to our newsletter <br> to stay update
+                    </h3>
+
+                    <div class="footer__subscribe">
+                        <input type="email" placeholder="Enter your email" class="footer__input">
+
+                        <button class="button button--flex footer__button">
+                            Subscribe
+                            <i class="ri-arrow-right-up-line button__icon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Our Address</h3>
+
+                    <ul class="footer__data">
+                        <li class="footer__information">723133 - Purulia</li>
+                        <li class="footer__information">West Bengal - Raghunathpur</li>
+                        <li class="footer__information">629-523-7346</li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Contact Us</h3>
+
+                    <ul class="footer__data">
+                        <li class="footer__information">+91 629 523 7346</li>
+                        
+                        <div class="footer__social">
+                            <a href="https://www.facebook.com/" class="footer__social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" class="footer__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="https://twitter.com/" class="footer__social-link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </div>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">
+                        We accept all credit cards
+                    </h3>
+
+                    <div class="footer__cards">
+                        <img src="../../assets/img/card1.png" alt="" class="footer__card">
+                        <img src="../../assets/img/card2.png" alt="" class="footer__card">
+                        <img src="../../assets/img/card3.png" alt="" class="footer__card">
+                        <img src="../../assets/img/card4.png" alt="" class="footer__card">
+                    </div>
+                </div>
+            </div>
+
+            <p class="footer__copy">&#169; Deblina. Create with love</p>
+        </footer>
+        
+        <!--scorll up button-->
+        <a href="#" class="scrollup" id="scroll-up"> 
+            <i class="ri-arrow-up-fill scrollup__icon"></i>
+        </a>
+
+
+        <script src="../../assets/js/scrollreveal.min.js"></script>
+        <script src="../../assets/js/main.js"></script>
