@@ -13,3 +13,8 @@ height: calc(100% - 73px);
 height: 100%;
 }
 }
+.bg-image {
+    background-color:rgb(141, 141, 224);
+    background-size: cover;
+    height: 100vh;
+}
