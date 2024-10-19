@@ -8,6 +8,9 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { DashboardAdministrateurComponent } from './dashboard-administrateur/dashboard-administrateur.component';
+import { DashboardLivreurComponent } from './dashboard-livreur/dashboard-livreur.component';
+import { DashboardClientComponent } from './dashboard-client/dashboard-client.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    DashboardAdministrateurComponent,
+    DashboardLivreurComponent,
+    DashboardClientComponent,
   ],
   imports: [
     BrowserModule,

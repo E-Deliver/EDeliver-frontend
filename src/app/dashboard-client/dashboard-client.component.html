@@ -1,0 +1,9 @@
+<h2>Bienvenue, {{ user.nom }} ({{ user.role }})</h2>
+<p><strong>ID:</strong> {{ user.id }}</p>
+<p><strong>Email:</strong> {{ user.email }}</p>
+<p><strong>Mot de passe:</strong> {{ user.motDePasse }}</p>
+<p><strong>Nom:</strong> {{ user.nom }}</p>
+<p><strong>Rôle:</strong> {{ user.role }}</p>
+
+<!-- Bouton de déconnexion -->
+<button (click)="logout()">Déconnexion</button>
