@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   private authUrl = 'http://localhost:9090/auth';
 
   constructor(private http: HttpClient) { }
 
-  // Correction : Assurez-vous que l'objet envoyé a bien les mêmes noms de clés que le backend attend
   login(email: string, motDePasse: string): Observable<any> {
     return this.http.post<any>(`${this.authUrl}/login`, { email, motDePasse });
   }
@@ -21,5 +21,18 @@ export class AuthService {
 
   getToken(): string | null {
     return localStorage.getItem('authToken');
+  }
+
+  storeUserData(user: any): void {
+    localStorage.setItem('userData', JSON.stringify(user));
+  }
+
+  getUserData(): any {
+    const userData = localStorage.getItem('userData');
+    return userData ? JSON.parse(userData) : null;
+  }
+
+  clearToken(): void {
+    localStorage.removeItem('authToken');
   }
 }
