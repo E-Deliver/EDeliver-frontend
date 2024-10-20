@@ -15,6 +15,10 @@ export class AuthService {
     return this.http.post<any>(`${this.authUrl}/login`, { email, motDePasse });
   }
 
+  registerLivreur(livreurData: any): Observable<any> {
+    return this.http.post('http://localhost:9090/auth/registerLivreur', livreurData, { responseType: 'text' });
+  }  
+
   storeToken(token: string): void {
     localStorage.setItem('authToken', token);
   }
