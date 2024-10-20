@@ -3,41 +3,26 @@
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                 <div class="card shadow-lg p-4" style="border-radius: 15px; background-color: #ffffff;">
-                    <form class="text-center">
-  
-                        <!-- Logo with animation -->
-                        <div class="mb-4">
-                            <img src="../../assets/img/logo.png" class="img-fluid" alt="App Logo" style="max-width: 150px; animation: fadeIn 1s;">
+                    <form class="text-center" (ngSubmit)="onSubmit()" #registerForm="ngForm">
+                        
+                        <div class="form-outline mb-4">
+                            <input type="text" name="nom" [(ngModel)]="formData.nom" id="nom" class="form-control form-control-lg" placeholder="Nom Complet" required />
                         </div>
-                        <div data-mdb-input-init class="form-outline mb-4">
-                          <input type="text" id="form3Example3" class="form-control form-control-lg" placeholder="Name" />
-                      </div>
-                      <div data-mdb-input-init class="form-outline mb-4">
-                          <input type="text" id="form3Example3" class="form-control form-control-lg" placeholder="Adresse" />
-                      </div>
-                        <!-- Email input -->
-                        <div data-mdb-input-init class="form-outline mb-4">
-                            <input type="email" id="form3Example3" class="form-control form-control-lg" placeholder="Email" />
+                        
+                        <div class="form-outline mb-4">
+                            <input type="text" name="localisation" [(ngModel)]="formData.localisation" id="localisation" class="form-control form-control-lg" placeholder="Adresse" required />
                         </div>
-  
-                        <!-- Password input -->
-                        <div data-mdb-input-init class="form-outline mb-3">
-                            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Mot de passe" />
+                        
+                        <div class="form-outline mb-4">
+                            <input type="email" name="email" [(ngModel)]="formData.email" id="email" class="form-control form-control-lg" placeholder="Email" required />
                         </div>
-  
-                        <!-- Login button with hover effect -->
-                        <div class="text-center text-lg-between mt-4 pt-2">
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" 
-                            style="padding-left: 2.5rem; padding-right: 2.5rem; background: linear-gradient(to right, #36d1dc, #5b86e5);">
-                                S'inscrire
-                            </button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">
-                                Vous avez déjà un compte? 
-                                <a href="javascript:void(0)" class="link-danger" (click)="navigateToLogin()">Se Connecter</a>
-                            </p>                            
+                        
+                        <div class="form-outline mb-3">
+                            <input type="password" name="motDePasse" [(ngModel)]="formData.motDePasse" id="motDePasse" class="form-control form-control-lg" placeholder="Mot de passe" required />
                         </div>
-  
-                    </form>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">S'inscrire</button>
+                    </form>                    
                 </div>
             </div>
         </div>

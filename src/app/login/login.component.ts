@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   email: string = '';
   motDePasse: string = '';
-  role: string = '';  // Pour stocker le rôle renvoyé
+  role: string = '';  
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -35,12 +35,11 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.email, this.motDePasse).subscribe(
       (response: any) => {
         const token = response.token;
-        const user = response.user; // Récupérer l'utilisateur
+        const user = response.user; 
   
         this.authService.storeToken(token);
-        this.authService.storeUserData(user); // Stocker les infos utilisateur
+        this.authService.storeUserData(user); 
   
-        // Rediriger vers le tableau de bord en fonction du rôle
         if (user.role === 'ADMINISTRATEUR') {
           this.router.navigate(['/dashboard-administrateur']);
         } else if (user.role === 'LIVREUR') {
@@ -61,9 +60,8 @@ export class LoginComponent implements OnInit {
     );
   }  
 
-  // Fonction de déconnexion
   logout() {
-    this.authService.clearToken();  // Méthode à ajouter pour effacer le token
+    this.authService.clearToken();  
     this.router.navigate(['/']);
   }
 }

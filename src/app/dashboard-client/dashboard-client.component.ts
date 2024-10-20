@@ -14,11 +14,11 @@ export class DashboardClientComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.user = this.authService.getUserData(); // Récupérer les données utilisateur
+    this.user = this.authService.getUserData(); 
   }
 
   logout(): void {
-    localStorage.clear(); // Effacer les données locales
-    this.router.navigate(['/']); // Rediriger vers la page d'accueil
+    localStorage.clear(); 
+    this.router.navigate(['/']); 
   }
 }
