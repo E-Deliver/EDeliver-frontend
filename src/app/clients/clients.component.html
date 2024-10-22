@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Clients List</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients">
+          <td>{{ client.id }}</td>
+          <td>{{ client.nom }}</td>
+          <td>{{ client.email }}</td>
+          <td>
+            <button (click)="fetchClientDetails(client.id)" class="btn btn-info">View Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+  </div>
+  

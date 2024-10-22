@@ -11,6 +11,10 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardAdministrateurComponent } from './dashboard-administrateur/dashboard-administrateur.component';
 import { DashboardLivreurComponent } from './dashboard-livreur/dashboard-livreur.component';
 import { DashboardClientComponent } from './dashboard-client/dashboard-client.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CommandesComponent } from './commandes/commandes.component';
+import { LivreursComponent } from './livreurs/livreurs.component';
+import { ClientsComponent } from './clients/clients.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,10 @@ import { DashboardClientComponent } from './dashboard-client/dashboard-client.co
     DashboardAdministrateurComponent,
     DashboardLivreurComponent,
     DashboardClientComponent,
+    ProfileComponent,
+    CommandesComponent,
+    LivreursComponent,
+    ClientsComponent,
   ],
   imports: [
     BrowserModule,

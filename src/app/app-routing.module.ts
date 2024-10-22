@@ -6,6 +6,10 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardClientComponent } from './dashboard-client/dashboard-client.component';
 import { DashboardLivreurComponent } from './dashboard-livreur/dashboard-livreur.component';
 import { DashboardAdministrateurComponent } from './dashboard-administrateur/dashboard-administrateur.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CommandesComponent } from './commandes/commandes.component';
+import { LivreursComponent } from './livreurs/livreurs.component';
+import { ClientsComponent } from './clients/clients.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent}, 
@@ -13,7 +17,15 @@ const routes: Routes = [
   { path: "signup", component: RegisterComponent},
   { path: "dashboard-client", component: DashboardClientComponent},
   { path: "dashboard-livreur", component: DashboardLivreurComponent},
-  { path: "dashboard-administrateur", component: DashboardAdministrateurComponent}
+  { path: "dashboard-administrateur", component: DashboardAdministrateurComponent},
+  { path: 'profile', component: ProfileComponent }, 
+  { path: 'commandes', component: CommandesComponent }, 
+  { path: 'historique', component: CommandesComponent }, 
+  { path: 'livreurs', component: LivreursComponent}, 
+  { path: 'clients', component: ClientsComponent }, 
+
+
+  
 ];
 
 @NgModule({
