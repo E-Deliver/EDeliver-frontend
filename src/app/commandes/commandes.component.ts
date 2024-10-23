@@ -28,5 +28,11 @@ export class CommandesComponent implements OnInit {
       }
     );
   }
-}
 
+  // Méthode pour choisir un livreur
+  choisirLivreur(commande: any) {
+    // Logique pour ouvrir un modal ou assigner un livreur
+    console.log("Choisir un livreur pour la commande : ", commande.idCommande);
+    // Ici, vous pouvez ajouter la logique pour ouvrir un modal et sélectionner un livreur.
+  }
+}

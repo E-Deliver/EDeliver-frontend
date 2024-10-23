@@ -15,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { CommandesComponent } from './commandes/commandes.component';
 import { LivreursComponent } from './livreurs/livreurs.component';
 import { ClientsComponent } from './clients/clients.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ClientsComponent } from './clients/clients.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
