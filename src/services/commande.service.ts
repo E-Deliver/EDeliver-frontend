@@ -23,7 +23,16 @@ export class CommandeService {
   }
 
   // Ajouter cette méthode dans le service
-  assignerLivreur(commandeId: number, livreurId: number): Observable<any> {
+  /*assignerLivreur(commandeId: number, livreurId: number): Observable<any> {
     return this.http.post(`${this.commandesUrl}/commandes/${commandeId}/assigner-livreur`, { livreurId });
-  }
+  }*/
+
+    assignerLivreur(commandeId: number, livreurId: number): Observable<any> {
+      const token = this.authService.getToken();
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      });
+      return this.http.put(`${this.commandesUrl}/${commandeId}/assigner/${livreurId}`, {}, { headers });
+    }    
 }

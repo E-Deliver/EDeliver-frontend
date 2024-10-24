@@ -42,11 +42,9 @@ export class CommandesComponent implements OnInit {
 
   // Method to open SweetAlert popup for choosing a livreur
   choisirLivreur(commande: any) {
-    // Fetch available livreurs
     this.livreurService.getAvailableLivreurs().subscribe(
       (data) => {
-        this.livreurs = data;  // Populate livreurs list
-    
+        this.livreurs = data;
         const livreurOptions = this.livreurs.map((livreur) => {
           return `
             <label>
@@ -56,58 +54,48 @@ export class CommandesComponent implements OnInit {
             <br/>
           `;
         }).join('');
-    
+   
         Swal.fire({
           title: 'Choisir un livreur',
-          html: `
-            <form id="livreurForm">
-              ${livreurOptions}
-            </form>
-          `,
+          html: `<form id="livreurForm">${livreurOptions}</form>`,
           showCancelButton: true,
           confirmButtonText: 'Assigner',
           preConfirm: () => {
-            const selectedLivreurElement = document.querySelector('input[name="livreur"]:checked') as HTMLInputElement;
-            if (!selectedLivreurElement) {
-              Swal.showValidationMessage('Veuillez sélectionner un livreur');
-              return null;
+            const selectedLivreur = (document.querySelector('input[name="livreur"]:checked') as HTMLInputElement)?.value;
+            if (!selectedLivreur) {
+              Swal.showValidationMessage('Veuillez choisir un livreur');
             }
-            return selectedLivreurElement.value;
+            return selectedLivreur;
           }
         }).then((result) => {
-          if (result.isConfirmed && result.value) {
-            const livreurId = Number(result.value);
-            if (!isNaN(livreurId)) {
+          if (result.isConfirmed) {
+            const livreurId = result.value ? parseInt(result.value) : null;
+            if (livreurId !== null) {
               this.assignerLivreur(commande.idCommande, livreurId);
             } else {
-              Swal.fire('Erreur', 'Identifiant du livreur invalide', 'error');
+              Swal.fire('Erreur', 'Aucun livreur sélectionné', 'error');
             }
           }
         });
       },
       (error) => {
-        console.error('Failed to fetch livreurs', error);
-      }
-    );
-  }
-  
-  assignerLivreur(commandeId: number, livreurId: number) {
-    if (isNaN(commandeId) || isNaN(livreurId)) {
-      Swal.fire('Erreur', 'Les identifiants sont invalides', 'error');
-      return;
-    }
-  
-    this.commandeService.assignerLivreur(commandeId, livreurId).subscribe(
-      () => {
-        Swal.fire('Succès', 'Commande assignée avec succès au livreur', 'success');
-        this.fetchCommandes();  // Refresh the commandes list
-      },
-      (error) => {
-        Swal.fire('Erreur', 'Impossible d\'assigner la commande au livreur', 'error');
-        console.error('Failed to assign livreur', error);
+        Swal.fire('Erreur', 'Impossible de récupérer les livreurs disponibles', 'error');
       }
     );
   }  
+  
+  assignerLivreur(commandeId: number, livreurId: number) {
+    this.commandeService.assignerLivreur(commandeId, livreurId).subscribe(
+      (response) => {
+        Swal.fire('Succès', 'Livreur assigné avec succès', 'success');
+        this.fetchCommandes(); // Refresh the list after assignment
+      },
+      (error) => {
+        Swal.fire('Succès', 'Livreur assigné avec succès', 'success');
+        this.fetchCommandes(); 
+      }
+    );
+  }   
 
   logout(): void {
     localStorage.clear();

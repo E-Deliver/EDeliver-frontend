@@ -168,7 +168,7 @@
                   <td>
                     <!-- Afficher le nom du livreur s'il est disponible, sinon afficher un bouton "Choisir" -->
                     <span *ngIf="commande.livreur?.nom">{{ commande.livreur.nom }}</span>
-                    <button *ngIf="!commande.livreur" class="btn btn-success" (click)="choisirLivreur(commande)">Choisir</button>
+                    <button *ngIf="!commande.livreur" class="btn btn-success" (click)="choisirLivreur(commande)">Choisir livreur</button>
                   </td>
                   <td>{{ commande.client?.nom}}</td>
                 </tr>
