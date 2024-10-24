@@ -21,4 +21,9 @@ export class CommandeService {
     });
     return this.http.get<any[]>(this.commandesUrl, { headers });
   }
+
+  // Ajouter cette méthode dans le service
+  assignerLivreur(commandeId: number, livreurId: number): Observable<any> {
+    return this.http.post(`${this.commandesUrl}/commandes/${commandeId}/assigner-livreur`, { livreurId });
+  }
 }
