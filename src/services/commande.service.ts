@@ -45,9 +45,9 @@ export class CommandeService {
       return this.http.get<any[]>(`${this.commandesUrl}/livreur/${livreurId}`, { headers });
     }
 
-    /*updateCommandeStatus(idCommande: number, newStatus: string): Observable<any> {
+    updateCommandeStatus(idCommande: number, newStatus: string): Observable<any> {
       return this.http.put(`${this.commandesUrl}/${idCommande}`, { statut: newStatus });
-    }*/
+    }
 
       updateCommandeStatut(idCommande: number, newStatus: string): Observable<any> {
         const token = this.authService.getToken();

@@ -108,15 +108,15 @@
                     <th>Confirmer Livraison</th>
                 </tr>
                 <tr *ngFor="let commande of commandes">
-                    <td>{{ commande.idCommande }}</td>
-                    <td>{{ commande.produits.join(', ') }}</td>
-                    <td>{{ commande.adresseLivraison }}</td>
-                    <td>{{ commande.statut }}</td>
-                    <td>{{ commande.dateCommande }}</td>
+                    <td *ngIf="commande.statut === 'En cours';">{{ commande.idCommande }}</td>
+                    <td *ngIf="commande.statut === 'En cours';">{{ commande.produits.join(', ') }}</td>
+                    <td *ngIf="commande.statut === 'En cours';">{{ commande.adresseLivraison }}</td>
+                    <td *ngIf="commande.statut === 'En cours';">{{ commande.statut }}</td>
+                    <td *ngIf="commande.statut === 'En cours';">{{ commande.dateCommande }}</td>
                     <!-- <td>
                       <button class="btn btn-success" (click)="confirmDelivery(commande)">Confirmer</button>
                     </td> -->
-                    <td>
+                    <td *ngIf="commande.statut === 'En cours';">
                       <ng-container *ngIf="commande.statut === 'Livrée'; else confirmerLivraison">
                         Déjà livré
                       </ng-container>

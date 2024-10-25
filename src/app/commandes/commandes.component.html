@@ -150,31 +150,26 @@
           <div class="w3-responsive">
             <table class="w3-table w3-bordered">
               <tr>
-                  <th>ID</th>
-                  <th>Produits</th>
-                  <th>Adresse Livraison</th>
-                  <th>Date Commande</th>
-                  <th>Statut</th>
-                  <th>Livreur</th>
-                  <th>Client</th>
+                <th>ID</th>
+                <th>Produits</th>
+                <th>Adresse Livraison</th>
+                <th>Date Commande</th>
+                <th>Statut</th>
+                <th>Livreur</th>
+                <th>Client</th>
               </tr>
               <tr *ngFor="let commande of commandes">
-                  <td>{{ commande.idCommande }}</td>
-                  <td>{{ commande.produits.join(', ') }}</td>
-                  <td>{{ commande.adresseLivraison }}</td>
-                  <td>{{ commande.dateCommande }}</td>
-                  <td>{{ commande.statut }}</td>
-                  <!-- <td>{{ commande.livreur?.etat }}</td> -->
-                  <td>
-                    <!-- Afficher le nom du livreur s'il est disponible, sinon afficher un bouton "Choisir" -->
-                    <span *ngIf="commande.livreur?.nom">{{ commande.livreur.nom }}</span>
-                    <button *ngIf="!commande.livreur" class="btn btn-success" (click)="choisirLivreur(commande)">Choisir livreur</button>
-                  </td>
-                  <td>{{ commande.client?.nom}}</td>
-                </tr>
-              
-              
-              
+                <td>{{ commande.idCommande }}</td>
+                <td>{{ commande.produits.join(', ') }}</td>
+                <td>{{ commande.adresseLivraison }}</td>
+                <td>{{ commande.dateCommande | date }}</td>
+                <td>{{ commande.statut }}</td>
+                <td>
+                  <span *ngIf="commande.livreur?.nom">{{ commande.livreur.nom }}</span>
+                  <button *ngIf="!commande.livreur" class="btn btn-success" (click)="choisirLivreur(commande)">Choisir livreur</button>
+                </td>
+                <td>{{ commande.client?.nom}}</td>
+              </tr>
             </table>
           </div>
         </div>
