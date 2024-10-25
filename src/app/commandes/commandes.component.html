@@ -99,7 +99,7 @@
       </div>
       <div class="w3-bar-block">
         <span class="w3-bar-item w3-padding w3-small w3-opacity" style="margin-top:8px"> NAVIGATION  PRINCIPALE</span>
-        <a href="./index.html" class="w3-bar-item w3-button w3-padding-large w3-hover-text-primary">
+        <a routerLink="/dashboard-administrateur" class="w3-bar-item w3-button w3-padding-large w3-hover-text-primary">
           <i class="fa fa-fw fa-bar-chart"></i>&nbsp; Dashboard </a>
           <a routerLink="/commandes" class="w3-bar-item w3-button w3-padding-large w3-hover-text-primary">
             <i class="fa fa-fw fa-shopping-cart"></i>&nbsp; Commandes
@@ -116,19 +116,19 @@
         <a routerLink="/profile" class="w3-bar-item w3-button w3-padding-large w3-hover-text-primary">
             <i class="fa fa-fw fa-user"></i>&nbsp; Profil
         </a>
-        <a  class="w3-bar-item w3-button w3-padding-large w3-hover-text-primary">
+        <a (click)="logout()" class="w3-bar-item w3-button w3-padding-large w3-hover-text-primary">
             <i class="fa fa-fw fa-sign-out-alt"></i>&nbsp; Se Déconnecter
         </a>
         
         <!-- <a href="./register.html" class="w3-bar-item w3-button w3-padding-large w3-hover-text-primary">
           <i class="fa fa-fw fa-sign-in"></i>&nbsp; Registration </a>-->
-        <span class="w3-bar-item w3-padding w3-small w3-opacity"> Support </span>
-        <div class="w3-bar-item support-section" style="padding: 20px; text-align: center;">
-          <p style="margin: 0; color: #888;font-weight: bold;margin-bottom: 5%;"></p>
-          <p style="margin: 0; color: #888;margin-bottom: 10%;"></p>
-          <a href="#" class="btn btn-success">
-            <i class="bi bi-whatsapp" aria-hidden="true"></i> Contactez-nous
-        </a>
+          <span class="w3-bar-item w3-padding w3-small w3-opacity"> Support </span>
+          <div class="w3-bar-item support-section" style="padding: 20px; text-align: center;">
+            <p style="margin: 0; color: #888;font-weight: bold;margin-bottom: 5%;">{{ user.nom }}</p>
+            <p style="margin: 0; color: #888;margin-bottom: 10%;">{{ user.email }}</p>
+            <a href="#" class="btn btn-success">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i> Contactez-nous
+          </a>
         
                     
         </div>
@@ -168,7 +168,7 @@
                   <td>
                     <!-- Afficher le nom du livreur s'il est disponible, sinon afficher un bouton "Choisir" -->
                     <span *ngIf="commande.livreur?.nom">{{ commande.livreur.nom }}</span>
-                    <button *ngIf="!commande.livreur" class="btn btn-success" (click)="choisirLivreur(commande)">Choisir</button>
+                    <button *ngIf="!commande.livreur" class="btn btn-success" (click)="choisirLivreur(commande)">Choisir livreur</button>
                   </td>
                   <td>{{ commande.client?.nom}}</td>
                 </tr>

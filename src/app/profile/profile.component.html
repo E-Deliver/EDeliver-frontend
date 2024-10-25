@@ -88,9 +88,9 @@
                 <div class="w3-show-inline-block w3-crop w3-circle" style="border:3px solid #fff; width:75px; margin-top:-37px">
                   <img src="../../assets/images/profile-1.png" class="w3-image" alt="">
                 </div>
-                <h5 style="margin-top:0">Mark Stern</h5>
+                <h5 style="margin-top:0">{{profileData.nom}}</h5>
                 <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <div class="w3-bar w3-margin-bottom">
+                <!-- <div class="w3-bar w3-margin-bottom">
                   <a href="javascript:;" class="w3-bar-item bg-facebook w3-margin-right w3-circle w3-text-white" style="padding:4px 5.4px!important">
                     <i class="fa fa-fw fa-facebook text-white"></i>
                   </a>
@@ -100,9 +100,9 @@
                   <a href="javascript:;" class="w3-bar-item bg-google-plus w3-margin-right w3-circle w3-text-white" style="padding:4px 5.4px!important">
                     <i class="fa fa-fw fa-google-plus text-white"></i>
                   </a>
-                </div>
+                </div> -->
               </div>
-              <div class="w3-padding-large">
+              <!-- <div class="w3-padding-large">
                 <div class="w3-flex-bar">
                   <img src="../../assets/icons/html5.svg" alt="" class="w3-image w3-left" width="40">
                   <div class="w3-container w3-grow">
@@ -142,19 +142,19 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="w3-col l8">
             <div class="w3-crop w3-round w3-white w3-padding-large">
               <div class="w3-tabs w3-space-around">
-                <input id="taba" class="w3-tab-control" type="radio" name="tabs" value="1" checked>
-                <label for="taba">
+                <!-- <input id="taba" class="w3-tab-control" type="radio" name="tabs" value="1" checked> -->
+                <!-- <label for="taba">
                   <span class="w3-button w3-block w3-border-bottom w3-border-info">
                     <span class="nav-link active"><i class="fa w3-xlarge fa-user"></i> <br> <span>Profile</span></span>
                   </span>
-                </label>
-                <input id="tabb" class="w3-tab-control" type="radio" name="tabs" value="2">
+                </label> -->
+                <input id="tabb" class="w3-tab-control" type="radio" name="tabs" value="2" checked>
                 <label for="tabb">
                   <span class="w3-button w3-block w3-border-bottom w3-border-info">
                     <span class="nav-link"><i class="fa w3-xlarge fa-envelope-open"></i> <br> <span>Messages</span></span>
@@ -167,7 +167,7 @@
                   </span>
                 </label>
                 <div class="w3-tab-content">
-                  <section class="w3-tab-panel w3-padding">
+                  <!-- <section class="w3-tab-panel w3-padding">
                     <h5 class="mb-3">User Profile</h5>
                     <div class="w3-row">
                       <div class="w3-col m6">
@@ -230,7 +230,7 @@
                         </table>
                       </div>
                     </div>
-                  </section>
+                  </section> -->
                   <section class="w3-tab-panel w3-padding">
                     <div class="w3-display-container w3-margin-bottom w3-info w3-round" role="alert">
                       <button type="button" class="w3-button w3-right w3-padding w3-padding-16 w3-display-right w3-opacity" data-dismiss="alert"><i class="fa fa-times"></i></button>
@@ -278,19 +278,19 @@
                       <div class="w3-row w3-margin-bottom">
                         <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">First name</label>
                         <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="text" value="Mark">
+                          <input class="w3-input w3-round w3-border" type="text" value="{{profileData.nom}} ">
                         </div>
                       </div>
                       <div class="w3-row w3-margin-bottom">
                         <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Last name</label>
                         <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="text" value="Jhonsan">
+                          <input class="w3-input w3-round w3-border" type="text" value="{{profileData.nom}}">
                         </div>
                       </div>
                       <div class="w3-row w3-margin-bottom">
                         <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Email</label>
                         <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="email" value="mark@example.com">
+                          <input class="w3-input w3-round w3-border" type="email" value="{{profileData.email}}">
                         </div>
                       </div>
                       <div class="w3-row w3-margin-bottom">
@@ -299,12 +299,7 @@
                           <input class="w3-input w3-round w3-border" type="file">
                         </div>
                       </div>
-                      <div class="w3-row w3-margin-bottom">
-                        <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Website</label>
-                        <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="url" value="">
-                        </div>
-                      </div>
+                     
                       <div class="w3-row w3-margin-bottom">
                         <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Address</label>
                         <div class="w3-col l9">
@@ -322,19 +317,19 @@
                       <div class="w3-row w3-margin-bottom">
                         <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Username</label>
                         <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="text" value="jhonsanmark">
+                          <input class="w3-input w3-round w3-border" type="text" value="{{profileData.nom}}">
                         </div>
                       </div>
                       <div class="w3-row w3-margin-bottom">
                         <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Password</label>
                         <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="password" value="11111122333">
+                          <input class="w3-input w3-round w3-border" type="password" value="{{profileData.motDePasse}}">
                         </div>
                       </div>
                       <div class="w3-row w3-margin-bottom">
                         <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Confirm password</label>
                         <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="password" value="11111122333">
+                          <input class="w3-input w3-round w3-border" type="password" value="{{profileData.motDePasse}}">
                         </div>
                       </div>
                       <div class="w3-row w3-margin-bottom">
