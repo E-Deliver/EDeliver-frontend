@@ -35,4 +35,28 @@ export class CommandeService {
       });
       return this.http.put(`${this.commandesUrl}/${commandeId}/assigner/${livreurId}`, {}, { headers });
     }    
+
+    getCommandesByLivreurId(livreurId: number): Observable<any[]> {
+      const token = this.authService.getToken();  // Assurez-vous d'avoir le token
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      });
+      return this.http.get<any[]>(`${this.commandesUrl}/livreur/${livreurId}`, { headers });
+    }
+
+    /*updateCommandeStatus(idCommande: number, newStatus: string): Observable<any> {
+      return this.http.put(`${this.commandesUrl}/${idCommande}`, { statut: newStatus });
+    }*/
+
+      updateCommandeStatut(idCommande: number, newStatus: string): Observable<any> {
+        const token = this.authService.getToken();
+        const headers = new HttpHeaders({
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        });
+        return this.http.put(`${this.commandesUrl}/${idCommande}/status`, { statut: newStatus }, { headers });
+      }
+      
+    
 }

@@ -15,6 +15,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { CommandesComponent } from './commandes/commandes.component';
 import { LivreursComponent } from './livreurs/livreurs.component';
 import { ClientsComponent } from './clients/clients.component';
+import { CommandesLivreurComponent } from './commandes-livreur/commandes-livreur.component';
+import { HistoriqueLivreurComponent } from './historique-livreur/historique-livreur.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { ClientsComponent } from './clients/clients.component';
     CommandesComponent,
     LivreursComponent,
     ClientsComponent,
+    CommandesLivreurComponent,
+    HistoriqueLivreurComponent,
   ],
   imports: [
     BrowserModule,
