@@ -34,7 +34,7 @@ export class CommandeService {
         'Content-Type': 'application/json',
       });
       return this.http.put(`${this.commandesUrl}/${commandeId}/assigner/${livreurId}`, {}, { headers });
-    }    
+    }     
 
     getCommandesByLivreurId(livreurId: number): Observable<any[]> {
       const token = this.authService.getToken();  // Assurez-vous d'avoir le token
