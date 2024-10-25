@@ -58,5 +58,22 @@ export class CommandeService {
         return this.http.put(`${this.commandesUrl}/${idCommande}/status`, { statut: newStatus }, { headers });
       }
       
+      getCommandesByClientIdAndStatus(clientId: number, statut: string): Observable<any[]> {
+        const token = this.authService.getToken();
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+        });
+        return this.http.get<any[]>(`${this.commandesUrl}/client/${clientId}/status/${statut}`, { headers });
+    } 
+    
+    getCommandesByClientIdAndStatut(clientId: number, statut: string): Observable<any[]> {
+      const token = this.authService.getToken();
+      const headers = new HttpHeaders({
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+      });
+      return this.http.get<any[]>(`${this.commandesUrl}/client/${clientId}/status/${statut}`, { headers });
+  } 
     
 }

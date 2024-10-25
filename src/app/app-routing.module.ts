@@ -12,6 +12,8 @@ import { LivreursComponent } from './livreurs/livreurs.component';
 import { ClientsComponent } from './clients/clients.component';
 import { CommandesLivreurComponent } from './commandes-livreur/commandes-livreur.component';
 import { HistoriqueLivreurComponent } from './historique-livreur/historique-livreur.component';
+import { CommandesClientComponent } from './commandes-client/commandes-client.component';
+import { HistoriqueClientComponent } from './historique-client/historique-client.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent}, 
@@ -26,10 +28,9 @@ const routes: Routes = [
   { path: 'livreurs', component: LivreursComponent}, 
   { path: 'clients', component: ClientsComponent }, 
   { path: 'commandes-livreur', component: CommandesLivreurComponent }, 
-  { path: 'historique-livreur', component: HistoriqueLivreurComponent }
-
-
-  
+  { path: 'historique-livreur', component: HistoriqueLivreurComponent } , 
+  { path: 'commandes-client', component: CommandesClientComponent }, 
+  { path: 'historique-client', component: HistoriqueClientComponent}
 ];
 
 @NgModule({
