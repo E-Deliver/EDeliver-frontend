@@ -31,6 +31,8 @@ const routes: Routes = [
   { path: 'historique-livreur', component: HistoriqueLivreurComponent } , 
   { path: 'commandes-client', component: CommandesClientComponent }, 
   { path: 'historique-client', component: HistoriqueClientComponent}
+
+  
 ];
 
 @NgModule({
