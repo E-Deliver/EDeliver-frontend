@@ -30,4 +30,25 @@ export class UtilisateurService {
     });
     return this.http.get(`${this.apiUrl}/role/${role}`, { headers });
   }
+  updateUserProfile(profileData: any): Observable<any> {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+  
+    return this.http.put(`${this.apiUrl}/profile`, profileData, { headers });
+  }
+  uploadProfilePhoto(fileData: FormData): Observable<any> {
+    const headers = this.createAuthHeaders().delete('Content-Type'); // Remove Content-Type header
+    return this.http.post(`${this.apiUrl}/uploadPhoto`, fileData, { headers });
+  }
+  
+  private createAuthHeaders(): HttpHeaders {
+    const token = this.authService.getToken();
+    return new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+  }
+  
 }

@@ -274,75 +274,66 @@
                     </div>
                   </section>
                   <section class="w3-tab-panel w3-padding">
-                    <form class="w3-margin-top">
+                    <form (ngSubmit)="saveProfileChanges()" class="w3-margin-top">
                       <div class="w3-row w3-margin-bottom">
                         <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">First name</label>
                         <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="text" value="{{profileData.nom}} ">
+                          <input class="w3-input w3-round w3-border" type="text" [(ngModel)]="profileData.nom" name="firstName">
                         </div>
                       </div>
                       <div class="w3-row w3-margin-bottom">
                         <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Last name</label>
                         <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="text" value="{{profileData.nom}}">
+                          <input class="w3-input w3-round w3-border" type="text" [(ngModel)]="profileData.prenom" name="lastName">
                         </div>
                       </div>
                       <div class="w3-row w3-margin-bottom">
                         <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Email</label>
                         <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="email" value="{{profileData.email}}">
+                          <input class="w3-input w3-round w3-border" type="email" [(ngModel)]="profileData.email" name="email">
                         </div>
                       </div>
-                      <div class="w3-row w3-margin-bottom">
-                        <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Change profile</label>
-                        <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="file">
-                        </div>
-                      </div>
-                     
                       <div class="w3-row w3-margin-bottom">
                         <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Address</label>
                         <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border w3-margin-bottom" type="text" value="" placeholder="Street">
-                          <div class="w3-row-padding w3-stretch">
-                            <div class="w3-col l8">
-                              <input class="w3-input w3-round w3-border" type="text" value="" placeholder="City">
-                            </div>
-                            <div class="w3-col l4">
-                              <input class="w3-input w3-round w3-border" type="text" value="" placeholder="State">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="w3-row w3-margin-bottom">
-                        <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Username</label>
-                        <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="text" value="{{profileData.nom}}">
+                          <input class="w3-input w3-round w3-border w3-margin-bottom" type="text" [(ngModel)]="profileData.address" placeholder="adresse" name="adress">
+                         
+                        
                         </div>
                       </div>
                       <div class="w3-row w3-margin-bottom">
                         <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Password</label>
                         <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="password" value="{{profileData.motDePasse}}">
+                          <input class="w3-input w3-round w3-border" type="password" [(ngModel)]="profileData.motDePasse" name="password">
                         </div>
                       </div>
                       <div class="w3-row w3-margin-bottom">
-                        <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Confirm password</label>
+                        <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Confirm Password</label>
                         <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="password" value="{{profileData.motDePasse}}">
+                          <input class="w3-input w3-round w3-border" type="password" [(ngModel)]="profileData.confirmMotDePasse" name="confirmPassword">
                         </div>
                       </div>
+                     
+                      <div class="w3-row w3-margin-bottom">
+                        <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Upload Photo</label>
+                        <div class="w3-col l9">
+                          <!-- File input for selecting a photo -->
+                          <input class="w3-input w3-round w3-border" type="file" (change)="onFileSelected($event)">
+                          <!-- Button to initiate the upload after selecting the file -->
+                          <button class="w3-button w3-blue w3-round w3-margin-top" (click)="uploadPhoto()">Upload</button>
+                        </div>
+                      </div>
+                      
                       <div class="w3-row w3-margin-bottom">
                         <div class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">&nbsp;</div>
-                        <div class="w3-col9">
-                          <div class="w3-flex-bar">
-                            <input type="reset" class="w3-button w3-round w3-secondary w3-margin-right" value="Cancel">
-                            <input type="button" class="w3-button w3-round w3-primary" value="Save Changes">
-                          </div>
+                        <div class="w3-col l9">
+                          <button type="button" class="w3-button w3-round w3-secondary w3-margin-right" (click)="getProfile()">Cancel</button>
+                          <button type="submit" class="w3-button w3-round w3-primary">Save Changes</button>
                         </div>
                       </div>
                     </form>
                   </section>
+                  
                 </div>
               </div>
             </div>
