@@ -14,6 +14,8 @@ import { CommandesLivreurComponent } from './commandes-livreur/commandes-livreur
 import { HistoriqueLivreurComponent } from './historique-livreur/historique-livreur.component';
 import { CommandesClientComponent } from './commandes-client/commandes-client.component';
 import { HistoriqueClientComponent } from './historique-client/historique-client.component';
+import { ProfileLivreurComponent } from './profile-livreur/profile-livreur.component';
+import { ProfileClientComponent } from './profile-client/profile-client.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent}, 
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: "dashboard-livreur", component: DashboardLivreurComponent},
   { path: "dashboard-administrateur", component: DashboardAdministrateurComponent},
   { path: 'profile', component: ProfileComponent }, 
+  { path: 'profileLivreur', component: ProfileLivreurComponent }, 
+  { path: 'profileClient', component: ProfileClientComponent }, 
   { path: 'commandes', component: CommandesComponent }, 
   { path: 'historique', component: CommandesComponent }, 
   { path: 'livreurs', component: LivreursComponent}, 

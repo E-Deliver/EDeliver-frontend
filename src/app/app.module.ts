@@ -19,6 +19,8 @@ import { CommandesClientComponent } from './commandes-client/commandes-client.co
 import { CommandesLivreurComponent } from './commandes-livreur/commandes-livreur.component';
 import { HistoriqueClientComponent } from './historique-client/historique-client.component';
 import { HistoriqueLivreurComponent } from './historique-livreur/historique-livreur.component';
+import { ProfileClientComponent } from './profile-client/profile-client.component';
+import { ProfileLivreurComponent } from './profile-livreur/profile-livreur.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { HistoriqueLivreurComponent } from './historique-livreur/historique-livr
     CommandesLivreurComponent,
     HistoriqueClientComponent,
     HistoriqueLivreurComponent,
+    ProfileClientComponent,
+    ProfileLivreurComponent,
   ],
   imports: [
     BrowserModule,
