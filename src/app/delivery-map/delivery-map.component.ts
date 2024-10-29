@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
+import { AuthService } from 'src/services/auth.service';
 
 interface Command {
   coords: [number, number]; // Define coords as a tuple with exactly two numbers
@@ -15,7 +16,11 @@ interface Command {
 })
 export class DeliveryMapComponent implements AfterViewInit {
   private map: L.Map | undefined;
-
+  user: any;
+  constructor(private authService: AuthService){}
+  ngOnInit(): void {
+    this.user = this.authService.getUserData();
+  }
   ngAfterViewInit(): void {
     this.initMap();
 

@@ -64,8 +64,8 @@
           <i class="fa fa-fw fa-sign-in"></i>&nbsp; Registration </a>-->
         <span class="w3-bar-item w3-padding w3-small w3-opacity"> Support </span>
         <div class="w3-bar-item support-section" style="padding: 20px; text-align: center;">
-          <p style="margin: 0; color: #888;font-weight: bold;margin-bottom: 5%;"></p>
-          <p style="margin: 0; color: #888;margin-bottom: 10%;"></p>
+          <p style="margin: 0; color: #888;font-weight: bold;margin-bottom: 5%;">{{ user.nom }}</p>
+            <p style="margin: 0; color: #888;margin-bottom: 10%;">{{ user.email }}</p>
           <a href="#" class="btn btn-success">
             <i class="bi bi-whatsapp" aria-hidden="true"></i> Contactez-nous
         </a>
@@ -82,7 +82,7 @@
           <div class="w3-col l4">
             <div class="w3-crop w3-round w3-white">
               <div class="w3-crop" style="height:150px">
-                <img src="../../assets/images/profile-bg.png" class="w3-image" alt="" style="margin-top:-30px">
+                <img src="{{profileData.photo}}" class="w3-image" alt="" style="margin-top:-30px">
               </div>
               <div class="w3-container w3-border-bottom">
                 <div class="w3-show-inline-block w3-crop w3-circle" style="border:3px solid #fff; width:75px; margin-top:-37px">
@@ -307,12 +307,7 @@
                           <input class="w3-input w3-round w3-border" type="password" [(ngModel)]="profileData.motDePasse" name="password">
                         </div>
                       </div>
-                      <div class="w3-row w3-margin-bottom">
-                        <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Confirm Password</label>
-                        <div class="w3-col l9">
-                          <input class="w3-input w3-round w3-border" type="password" [(ngModel)]="profileData.confirmMotDePasse" name="confirmPassword">
-                        </div>
-                      </div>
+                    
                      
                       <div class="w3-row w3-margin-bottom">
                         <label class="w3-col l3 w3-padding w3-bold w3-uppercase w3-small">Upload Photo</label>

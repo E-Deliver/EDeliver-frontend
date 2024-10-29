@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/services/auth.service';
 import { LivreurService } from 'src/services/livreur.service'; // Adjust the path if needed
 
 @Component({
@@ -7,13 +8,16 @@ import { LivreurService } from 'src/services/livreur.service'; // Adjust the pat
   styleUrls: ['./livreurs.component.css']
 })
 export class LivreursComponent implements OnInit {
+  user: any;
 
   allLivreurs: any[] = [];  // Store the list of all livreurs
   availableLivreurs: any[] = [];  // Store the list of available livreurs
 
-  constructor(private livreurService: LivreurService) { }
+  constructor(private livreurService: LivreurService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.user = this.authService.getUserData();
+
     this.fetchAllLivreurs();  // Fetch all livreurs on component initialization
     this.fetchAvailableLivreurs();  // Fetch only available livreurs on component initialization
   }

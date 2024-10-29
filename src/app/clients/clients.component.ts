@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/services/auth.service';
 import { ClientService } from 'src/services/client.service';  // Adjust the path according to your structure
 
 @Component({
@@ -7,14 +8,16 @@ import { ClientService } from 'src/services/client.service';  // Adjust the path
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit {
-
+user:any
   clients: any[] = [];  // Store the list of clients
   selectedClient: any = null;  // To store the client details when selected
 
-  constructor(private clientService: ClientService) { }
+  constructor(private clientService: ClientService,    private authService: AuthService  ) { }
 
   ngOnInit(): void {
     this.fetchClients();  // Fetch clients when the component is initialized
+    this.user = this.authService.getUserData();
+
   }
 
   // Fetch the list of clients
