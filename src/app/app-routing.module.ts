@@ -16,6 +16,7 @@ import { CommandesClientComponent } from './commandes-client/commandes-client.co
 import { HistoriqueClientComponent } from './historique-client/historique-client.component';
 import { ProfileLivreurComponent } from './profile-livreur/profile-livreur.component';
 import { ProfileClientComponent } from './profile-client/profile-client.component';
+import { DeliveryMapComponent } from './delivery-map/delivery-map.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent}, 
@@ -34,7 +35,10 @@ const routes: Routes = [
   { path: 'commandes-livreur', component: CommandesLivreurComponent }, 
   { path: 'historique-livreur', component: HistoriqueLivreurComponent } , 
   { path: 'commandes-client', component: CommandesClientComponent }, 
-  { path: 'historique-client', component: HistoriqueClientComponent}
+  { path: 'historique-client', component: HistoriqueClientComponent},
+  { path: 'map', component: DeliveryMapComponent},
+
+
 
   
 ];

@@ -21,6 +21,7 @@ import { HistoriqueClientComponent } from './historique-client/historique-client
 import { HistoriqueLivreurComponent } from './historique-livreur/historique-livreur.component';
 import { ProfileClientComponent } from './profile-client/profile-client.component';
 import { ProfileLivreurComponent } from './profile-livreur/profile-livreur.component';
+import { DeliveryMapComponent } from './delivery-map/delivery-map.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ProfileLivreurComponent } from './profile-livreur/profile-livreur.compo
     HistoriqueLivreurComponent,
     ProfileClientComponent,
     ProfileLivreurComponent,
+    DeliveryMapComponent,
   ],
   imports: [
     BrowserModule,
