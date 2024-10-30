@@ -1,0 +1,57 @@
+/* Table Styling */
+.command-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+  }
+  
+  .command-table thead tr {
+    background-color: #f1f1f1;
+    color: #333;
+  }
+  
+  .command-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .command-table tbody tr:hover {
+    background-color: #e8f0fe;
+  }
+  
+  .command-table th,
+  .command-table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .command-table th {
+    font-weight: bold;
+    color: #4a4a4a;
+  }
+  
+  /* Status Styles */
+  .status-en-cours {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .status-livree {
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  /* Button Styling */
+  .btn-choose-livreur {
+    padding: 6px 12px;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-choose-livreur:hover {
+    background-color: #218838;
+  }
+  

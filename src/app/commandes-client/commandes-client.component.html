@@ -87,40 +87,59 @@
       
       <div class="w3-main" style="margin-top:54px">
         <div style="padding:16px 32px">
-          
           <div class="w3-row-padding w3-stretch">
-            
-            
+            <!-- Additional content can be added here if needed -->
           </div>
-          <div class="w3-white w3-round w3-margin-bottom w3-border" >
+          <div class="w3-white w3-round w3-margin-bottom w3-border">
             <header class="w3-padding-large w3-large w3-border-bottom" style="font-weight: 500">Liste des commandes</header>
             <div class="w3-responsive">
               <table *ngIf="commandes.length > 0; else noCommandes" class="w3-table w3-bordered">
                 <tr>
-                    <th>ID</th>
-                    <th>Produits</th>
-                    <th>Adresse Livraison</th>
-                    <th>Statut</th>
-                    <th>Date Commande</th>
+                  <th>ID</th>
+                  <th>Produits</th>
+                  <th>Adresse Livraison</th>
+                  <th>Statut</th>
+                  <th>Date Commande</th>
                 </tr>
                 <tr *ngFor="let commande of commandes">
-                    <td>{{ commande.idCommande }}</td>
-                    <td>{{ commande.produits.join(', ') }}</td>
-                    <td>{{ commande.adresseLivraison }}</td>
-                    <td>{{ commande.statut }}</td>
-                    <td>{{ commande.dateCommande }}</td>
-                    
+                  <td>{{ commande.idCommande }}</td>
+                  <td>{{ commande.produits.join(', ') }}</td>
+                  <td>{{ commande.adresseLivraison }}</td>
+                  <td>{{ commande.statut }}</td>
+                  <td>{{ commande.dateCommande }}</td>
                 </tr>
-                
               </table>
+              
+              <ng-template #noCommandes>
+                <p style="text-align: center;">Aucune commande assignée pour le moment.</p>
+              </ng-template>
+      
+              <!-- Pagination -->
+              <ul class="pagination pagination-circle pagination-outline" style="justify-content: center;">
+                <li class="page-item previous" [class.disabled]="currentPage === 1">
+                  <a class="page-link" (click)="goToPage(1)" [attr.aria-disabled]="currentPage === 1">First</a>
+                </li>
+                <li class="page-item previous" [class.disabled]="currentPage === 1">
+                  <a class="page-link" (click)="goToPage(currentPage - 1)" [attr.aria-disabled]="currentPage === 1">Previous</a>
+                </li>
                 
-                <ng-template #noCommandes>
-                    <p style="text-align: center;">Aucune commande assignée pour le moment.</p>
-                </ng-template>
+                <li *ngFor="let page of [].constructor(totalPages); let i = index" class="page-item" [class.active]="currentPage === i + 1">
+                  <a class="page-link" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+                </li>
+                
+                <li class="page-item next" [class.disabled]="currentPage === totalPages">
+                  <a class="page-link" (click)="goToPage(currentPage + 1)" [attr.aria-disabled]="currentPage === totalPages">Next</a>
+                </li>
+                <li class="page-item next" [class.disabled]="currentPage === totalPages">
+                  <a class="page-link" (click)="goToPage(totalPages)" [attr.aria-disabled]="currentPage === totalPages">Last</a>
+                </li>
+              </ul>
+      
             </div>
           </div>
         </div>
       </div>
+      
 
     </div>
     

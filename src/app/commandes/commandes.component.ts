@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2';
-import { LivreurService } from 'src/services/livreur.service';  // Import your LivreurService
+import { LivreurService } from 'src/services/livreur.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { CommandeService } from 'src/services/commande.service';
 import { AuthService } from 'src/services/auth.service';
@@ -14,13 +14,16 @@ export class CommandesComponent implements OnInit {
 
   user: any;
   commandes: any[] = [];
-  livreurs: any[] = [];  // Store the list of livreurs
+  livreurs: any[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 5;
+  paginatedCommandes: any[] = [];
 
   constructor(
     @Inject(CommandeService) private commandeService: CommandeService,
     private authService: AuthService,
     private router: Router,
-    @Inject(LivreurService) private livreurService: LivreurService  // Inject LivreurService
+    @Inject(LivreurService) private livreurService: LivreurService
   ) {}
 
   ngOnInit(): void {
@@ -33,6 +36,8 @@ export class CommandesComponent implements OnInit {
       (data) => {
         this.commandes = data;
         console.log(this.commandes);
+        this.currentPage = 1; // Ensure the first page is selected
+        this.updatePaginatedCommandes(); // Update paginated data after commandes is set
       },
       (error) => {
         console.error('Failed to fetch commandes', error);
@@ -40,7 +45,21 @@ export class CommandesComponent implements OnInit {
     );
   }
 
-  // Method to open SweetAlert popup for choosing a livreur
+  updatePaginatedCommandes() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.paginatedCommandes = this.commandes.slice(startIndex, endIndex);
+  }
+
+  goToPage(page: number) {
+    this.currentPage = page;
+    this.updatePaginatedCommandes();
+  }
+
+  get totalPages() {
+    return Math.ceil(this.commandes.length / this.itemsPerPage);
+  }
+
   choisirLivreur(commande: any) {
     this.livreurService.getAvailableLivreurs().subscribe(
       (data) => {
@@ -91,8 +110,7 @@ export class CommandesComponent implements OnInit {
         this.fetchCommandes(); // Refresh the list after assignment
       },
       (error) => {
-        Swal.fire('Succès', 'Livreur assigné avec succès', 'success');
-        this.fetchCommandes(); 
+        Swal.fire('Erreur', 'Impossible d\'assigner le livreur', 'error');
       }
     );
   }   

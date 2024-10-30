@@ -13,6 +13,10 @@ import Swal from 'sweetalert2';
 export class CommandesLivreurComponent implements OnInit {
   user: any;
   commandes: any[] = []; // Stocke les commandes du livreur
+  paginatedCommandes: any[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 5; // Change this value to display more or fewer items per page
+  totalPages: number = 0;
 
   constructor(
     private authService: AuthService,
@@ -30,11 +34,26 @@ export class CommandesLivreurComponent implements OnInit {
       this.commandeService.getCommandesByLivreurId(this.user.id).subscribe(
         (commandes) => {
           this.commandes = commandes;
+          this.totalPages = Math.ceil(this.commandes.length / this.itemsPerPage);
+          this.updatePaginatedCommandes();
         },
         (error) => {
           console.error("Erreur lors de la récupération des commandes :", error);
         }
       );
+    }
+  }
+
+  updatePaginatedCommandes(): void {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+    this.paginatedCommandes = this.commandes.slice(start, end);
+  }
+
+  goToPage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.updatePaginatedCommandes();
     }
   }
 
@@ -58,41 +77,7 @@ export class CommandesLivreurComponent implements OnInit {
               'La commande a été marquée comme livrée.',
               'success'
             );
-          },
-          (error) => {
-            commande.statut = 'Livrée'; // Mise à jour locale
-            Swal.fire(
-              'Livrée!',
-              'La commande a été marquée comme livrée.',
-              'success'
-            );
-          }
-        );
-      }
-    });
-  }  
-
-  /*confirmDelivery(commande: any): void {
-    Swal.fire({
-      title: 'Êtes-vous sûr ?',
-      text: "Voulez-vous confirmer la livraison de cette commande ?",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Oui, livrer !',
-      cancelButtonText: 'Annuler'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Appel du service pour mettre à jour le statut de la commande
-        this.commandeService.updateCommandeStatus(commande.idCommande, 'Livrée').subscribe(
-          (response) => {
-            commande.statut = 'Livrée'; // Met à jour le statut dans l'affichage
-            Swal.fire(
-              'Livrée!',
-              'La commande a été marquée comme livrée.',
-              'success'
-            );
+            this.loadCommandes(); // Reload the commandes to refresh the list
           },
           (error) => {
             Swal.fire(
@@ -104,7 +89,7 @@ export class CommandesLivreurComponent implements OnInit {
         );
       }
     });
-  }*/
+  }
 
   logout(): void {
     localStorage.clear();

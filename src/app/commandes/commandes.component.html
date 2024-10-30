@@ -140,16 +140,14 @@
     
     <div class="w3-main" style="margin-top:54px">
       <div style="padding:16px 32px">
-        
-        <div class="w3-row-padding w3-stretch">
-          
-          
-        </div>
-        <div class="w3-white w3-round w3-margin-bottom w3-border" >
-          <header class="w3-padding-large w3-large w3-border-bottom" style="font-weight: 500">Liste des commandes</header>
+        <div class="w3-white w3-round w3-margin-bottom w3-border">
+          <header class="w3-padding-large w3-large w3-border-bottom" style="font-weight: 500">
+            Liste des commandes
+          </header>
           <div class="w3-responsive">
-            <table class="w3-table w3-bordered">
-              <tr>
+            <table class="command-table w3-table w3-bordered w3-hoverable">
+              <thead>
+                <tr>
                   <th>ID</th>
                   <th>Produits</th>
                   <th>Adresse Livraison</th>
@@ -157,32 +155,63 @@
                   <th>Statut</th>
                   <th>Livreur</th>
                   <th>Client</th>
-              </tr>
-              <tr *ngFor="let commande of commandes">
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let commande of paginatedCommandes">
                   <td>{{ commande.idCommande }}</td>
                   <td>{{ commande.produits.join(', ') }}</td>
                   <td>{{ commande.adresseLivraison }}</td>
                   <td>{{ commande.dateCommande }}</td>
-                  <td>{{ commande.statut }}</td>
-                  <!-- <td>{{ commande.livreur?.etat }}</td> -->
                   <td>
-                    <!-- Afficher le nom du livreur s'il est disponible, sinon afficher un bouton "Choisir" -->
-                    <span *ngIf="commande.livreur?.nom">{{ commande.livreur.nom }}</span>
-                    <button *ngIf="!commande.livreur" class="btn btn-success" (click)="choisirLivreur(commande)">Choisir livreur</button>
+                    <span class="badge-dot">
+                      <i [class.w3-danger]="commande.statut === 'EN_COURS'" 
+                         [class.w3-success]="commande.statut === 'Livrée'"
+                         [class.w3-warning]="commande.statut === 'En cours'"></i>
+          
+                      {{ commande.statut }}
+                    </span>
                   </td>
-                  <td>{{ commande.client?.nom}}</td>
+                  <td>
+                    <span *ngIf="commande.livreur?.nom">{{ commande.livreur.nom }}</span>
+                    <button *ngIf="!commande.livreur" class="btn-choose-livreur" (click)="choisirLivreur(commande)">
+                      Choisir livreur
+                    </button>
+                  </td>
+                  <td>{{ commande.client?.nom }}</td>
                 </tr>
-              
-              
-              
+              </tbody>
             </table>
           </div>
+    
+          <!-- Pagination Controls -->
+          <ul class="pagination pagination-circle pagination-outline" style="justify-content: center; padding: 10px;">
+            <li class="page-item previous" [class.disabled]="currentPage === 1">
+              <a class="page-link" (click)="goToPage(1)" [attr.aria-disabled]="currentPage === 1">First</a>
+            </li>
+            <li class="page-item previous" [class.disabled]="currentPage === 1">
+              <a class="page-link" (click)="goToPage(currentPage - 1)" [attr.aria-disabled]="currentPage === 1">Previous</a>
+            </li>
+        
+            <li *ngFor="let page of [].constructor(totalPages); let i = index" class="page-item" [class.active]="currentPage === i + 1">
+              <a class="page-link" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+            </li>
+        
+            <li class="page-item next" [class.disabled]="currentPage === totalPages">
+              <a class="page-link" (click)="goToPage(currentPage + 1)" [attr.aria-disabled]="currentPage === totalPages">Next</a>
+            </li>
+            <li class="page-item next" [class.disabled]="currentPage === totalPages">
+              <a class="page-link" (click)="goToPage(totalPages)" [attr.aria-disabled]="currentPage === totalPages">Last</a>
+            </li>
+          </ul>
+        
+          <span>Page {{ currentPage }} of {{ totalPages }}</span>
         </div>
       </div>
-      <!-- <footer class="w3-padding w3-border-top w3-center w3-white w3-margin-top">
-        <span class="w3-opacity">Powered with <span class="w3-text-red">♥</span> by <a href="https://w3mix.com" target="_blank"><strong>W3Mix.com</strong></a>.</span>
-      </footer> -->
     </div>
+    
+    
+    
   </div>
   
 </body>
