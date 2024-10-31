@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/services/auth.service';
 import { Router } from '@angular/router';
 import { UtilisateurService } from 'src/services/utilisateur.service';
+import { NotificationService } from 'src/services/notification.service';
 
 @Component({
   selector: 'app-profile-client',
@@ -16,17 +17,34 @@ export class ProfileClientComponent implements OnInit  {
     profileData: any;
     usersByRole: any;
     selectedFile: File | null = null;  // New property for selected file
+
+    notifications: any[] = [];
   
     constructor(
       private authService: AuthService, 
       private router: Router, 
-      private utilisateurService: UtilisateurService
+      private utilisateurService: UtilisateurService,
+      private notificationService: NotificationService
     ) {}
   
     ngOnInit(): void {
       this.user = this.authService.getUserData();
       this.getProfile();
       this.getUsersByRole('ADMINISTRATEUR');
+
+      this.loadClientNotifications();
+    }
+
+    loadClientNotifications() {
+      const clientId = this.user?.id;  // Assuming `id` is stored in user data
+      this.notificationService.getNotificationsByClientId(clientId).subscribe(
+        data => {
+          this.notifications = data;
+        },
+        error => {
+          console.error('Error fetching notifications:', error);
+        }
+      );
     }
   
     getProfile() {

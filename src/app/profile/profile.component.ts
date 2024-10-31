@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/services/auth.service';
 import { Router } from '@angular/router';
 import { UtilisateurService } from 'src/services/utilisateur.service';
+import { NotificationService } from 'src/services/notification.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,16 +15,32 @@ export class ProfileComponent implements OnInit {
   usersByRole: any;
   selectedFile: File | null = null;  // New property for selected file
 
+  notifications: any[] = [];
+
   constructor(
     private authService: AuthService, 
     private router: Router, 
-    private utilisateurService: UtilisateurService
+    private utilisateurService: UtilisateurService,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit(): void {
     this.user = this.authService.getUserData();
     this.getProfile();
     this.getUsersByRole('ADMINISTRATEUR');
+    this.getNotifications();
+  }
+
+  getNotifications() {
+    this.notificationService.getAllNotifications().subscribe(
+      data => {
+        this.notifications = data;
+        console.log('Notifications:', this.notifications);
+      },
+      error => {
+        console.error('Error fetching notifications:', error);
+      }
+    );
   }
 
   getProfile() {

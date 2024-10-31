@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/services/auth.service';
 import { Router } from '@angular/router';
 import { UtilisateurService } from 'src/services/utilisateur.service';
+import { NotificationService } from 'src/services/notification.service';
 
 @Component({
   selector: 'app-profile-livreur',
@@ -19,17 +20,40 @@ export class ProfileLivreurComponent  implements OnInit  {
     profileData: any;
     usersByRole: any;
     selectedFile: File | null = null;  // New property for selected file
+
+    commandes: any;
+
+    notifications: any[] = [];
   
     constructor(
       private authService: AuthService, 
       private router: Router, 
-      private utilisateurService: UtilisateurService
+      private utilisateurService: UtilisateurService,
+      private notificationService: NotificationService
     ) {}
   
     ngOnInit(): void {
       this.user = this.authService.getUserData();
       this.getProfile();
       this.getUsersByRole('ADMINISTRATEUR');
+
+      this.getCommandesForClientAndLivreur();
+      
+    }
+
+    getCommandesForClientAndLivreur() {
+      const clientId = this.user.clientId; // Assurez-vous que l'ID du client est accessible
+      const livreurId = this.user.id;      // ID de l'utilisateur connecté (livreur)
+  
+      this.notificationService.getCommandesByClientAndLivreur(clientId, livreurId).subscribe(
+        data => {
+          this.commandes = data;
+          console.log('Commandes:', this.commandes);
+        },
+        error => {
+          console.error('Erreur lors de la récupération des commandes:', error);
+        }
+      );
     }
   
     getProfile() {

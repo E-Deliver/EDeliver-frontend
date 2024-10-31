@@ -71,6 +71,13 @@ export class CommandesLivreurComponent implements OnInit {
       if (result.isConfirmed) {
         this.commandeService.updateCommandeStatut(commande.idCommande, 'Livrée').subscribe(
           (response) => {
+            Swal.fire(
+              'Erreur',
+              "Une erreur est survenue lors de la mise à jour de la commande.",
+              'error'
+            );
+          },
+          (error) => {
             commande.statut = 'Livrée'; // Mise à jour locale
             Swal.fire(
               'Livrée!',
@@ -78,13 +85,6 @@ export class CommandesLivreurComponent implements OnInit {
               'success'
             );
             this.loadCommandes(); // Reload the commandes to refresh the list
-          },
-          (error) => {
-            Swal.fire(
-              'Erreur',
-              "Une erreur est survenue lors de la mise à jour de la commande.",
-              'error'
-            );
           }
         );
       }

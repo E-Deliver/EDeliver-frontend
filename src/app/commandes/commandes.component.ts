@@ -106,11 +106,11 @@ export class CommandesComponent implements OnInit {
   assignerLivreur(commandeId: number, livreurId: number) {
     this.commandeService.assignerLivreur(commandeId, livreurId).subscribe(
       (response) => {
-        Swal.fire('Succès', 'Livreur assigné avec succès', 'success');
-        this.fetchCommandes(); // Refresh the list after assignment
+        Swal.fire('Erreur', 'Impossible d\'assigner le livreur', 'error');
       },
       (error) => {
-        Swal.fire('Erreur', 'Impossible d\'assigner le livreur', 'error');
+        Swal.fire('Succès', 'Livreur assigné avec succès', 'success');
+        this.fetchCommandes(); // Refresh the list after assignment
       }
     );
   }   
