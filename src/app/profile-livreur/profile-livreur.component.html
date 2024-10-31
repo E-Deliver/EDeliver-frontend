@@ -155,7 +155,7 @@
                   <input id="tabb" class="w3-tab-control" type="radio" name="tabs" value="2" checked>
                   <label for="tabb">
                     <span class="w3-button w3-block w3-border-bottom w3-border-info">
-                      <span class="nav-link"><i class="fa w3-xlarge fa-envelope-open"></i> <br> <span>Messages</span></span>
+                      <span class="nav-link"><i class="fa w3-xlarge fa-envelope-open"></i> <br> <span>Notifications</span></span>
                     </span>
                   </label>
                   <input id="tabc" class="w3-tab-control" type="radio" name="tabs" value="3">
@@ -230,7 +230,7 @@
                       </div>
                     </section> -->
                     <section class="w3-tab-panel w3-padding">
-                      <div class="w3-display-container w3-margin-bottom w3-info w3-round" role="alert">
+                      <!-- <div class="w3-display-container w3-margin-bottom w3-info w3-round" role="alert">
                         <button type="button" class="w3-button w3-right w3-padding w3-padding-16 w3-display-right w3-opacity" data-dismiss="alert"><i class="fa fa-times"></i></button>
                         <div class="w3-left w3-padding w3-padding-16">
                           <i class="fa fa-fw fa-info-circle"></i>
@@ -238,34 +238,13 @@
                         <div class="w3-padding w3-padding-16">
                           <span><strong>Info!</strong> Lorem Ipsum is simply dummy text.</span>
                         </div>
-                      </div>
+                      </div> -->
                       <div class="table-responsive">
                         <table class="w3-table w3-bordered w3-striped">
                           <tbody>
-                            <tr>
-                              <td>
-                                <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus.
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros.
-                              </td>
+                            <tr *ngFor="let notification of notifications">
+                              <td>{{ notification.dateEnvoi | date:'short' }}</td>
+                              <td>{{ notification.message }}</td>
                             </tr>
                           </tbody>
                         </table>
