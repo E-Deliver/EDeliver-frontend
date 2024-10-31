@@ -3,6 +3,8 @@ import { AuthService } from 'src/services/auth.service';
 import { Router } from '@angular/router';
 import { UtilisateurService } from 'src/services/utilisateur.service';
 import { NotificationService } from 'src/services/notification.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-profile',
@@ -71,14 +73,25 @@ export class ProfileComponent implements OnInit {
     this.utilisateurService.updateUserProfile(this.profileData).subscribe(
       response => {
         console.log('Profile updated successfully:', response);
-        alert('Profile updated successfully');
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Profile updated successfully',
+          confirmButtonText: 'OK'
+        });
       },
       error => {
         console.error('Error updating profile:', error);
-        alert('Failed to update profile');
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Failed to update profile',
+          confirmButtonText: 'Try Again'
+        });
       }
     );
   }
+  
 
   // File selection handler
   onFileSelected(event: Event): void {
@@ -103,15 +116,30 @@ export class ProfileComponent implements OnInit {
         response => {
           console.log('Photo uploaded successfully:', response);
           this.profileData.filePath = response.filePath;  // Assuming the backend returns the path
-          alert('Photo uploaded successfully');
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Photo uploaded successfully',
+            confirmButtonText: 'OK'
+          });
         },
         error => {
           console.error('Error uploading photo:', error);
-          alert('Failed to upload photo');
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Failed to upload photo',
+            confirmButtonText: 'Try Again'
+          });
         }
       );
     } else {
-      alert('Please select a photo to upload.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'No File Selected',
+        text: 'Please select a photo to upload.',
+        confirmButtonText: 'OK'
+      });
     }
   }
   

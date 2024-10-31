@@ -10,7 +10,12 @@ export class CommandeService {
   private commandesUrl = 'http://localhost:9090/api/commandes';  // Your backend API URL
 
   constructor(private http: HttpClient, private authService: AuthService) { }
+  private apiUrl = '/api/commandes/stats';  // Adjust the URL as needed
 
+
+  getCommandeStats(): Observable<{ livree: number; nonLivree: number }> {
+    return this.http.get<{ livree: number; nonLivree: number }>(this.apiUrl);
+  }
   // Method to retrieve all commandes
   getCommandes(): Observable<any[]> {
     const token = this.authService.getToken(); 
