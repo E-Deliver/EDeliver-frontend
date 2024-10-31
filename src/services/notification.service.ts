@@ -39,4 +39,13 @@ export class NotificationService {
     return this.http.get<any>(`${this.apiUrl}/client-livreur?clientId=${clientId}&livreurId=${livreurId}`, { headers });
   }
 
+  getNotificationsForLivreur(livreurId: number): Observable<any> {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+    return this.http.get<any>(`${this.apiUrl}/livreur?livreurId=${livreurId}`, { headers });
+  }
+
 }

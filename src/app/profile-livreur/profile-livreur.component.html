@@ -242,7 +242,10 @@
                       <div class="table-responsive">
                         <table class="w3-table w3-bordered w3-striped">
                           <tbody>
-                            
+                            <tr *ngFor="let notification of notifications">
+                              <td>{{ notification.dateEnvoi | date:'short' }}</td>
+                              <td>{{ notification.message }}</td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>

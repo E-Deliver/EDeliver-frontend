@@ -38,7 +38,21 @@ export class ProfileLivreurComponent  implements OnInit  {
       this.getUsersByRole('ADMINISTRATEUR');
 
       this.getCommandesForClientAndLivreur();
+
+      const livreurId = this.authService.getUserData().id; 
+      this.getNotificationsForLivreur(livreurId);
       
+    }
+
+    getNotificationsForLivreur(livreurId: number) {
+      this.notificationService.getNotificationsForLivreur(livreurId).subscribe(
+        data => {
+          this.notifications = data;
+        },
+        error => {
+          console.error('Error fetching notifications:', error);
+        }
+      );
     }
 
     getCommandesForClientAndLivreur() {
