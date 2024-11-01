@@ -14,7 +14,7 @@ height: 100%;
 }
 }
 .bg-image {
-    background-color:rgb(141, 141, 224);
+    background-image: url(../../assets/img/site-ecommerce.jpg);
     background-size: cover;
-    height: 100vh;
+    height: 90vh;
 }

@@ -80,51 +80,54 @@
           
       </div>
     </nav>
+   <div class="welcome-banner w3-round-large w3-margin-bottom">
+  <div class="welcome-content">
+    <h2>Bienvenue, {{ user?.nom }} !</h2>
+    <p>Nous sommes ravis de vous avoir à bord. Accédez à vos statistiques de commande, explorez de nouvelles fonctionnalités et faites-nous savoir si vous avez besoin d'aide. Votre expérience est importante pour nous !</p>
+    <button class="explore-button">Explorer maintenant</button>
+  </div>
+   </div>
 
     
-    <div class="w3-main" style="margin-top:54px">
+    
+    <div class="w3-main" style="margin-top:54px;">
       <div style="padding:16px 32px">
-        <div class="w3-white w3-round w3-margin-bottom w3-border" >
-          <div class="w3-row">
-            <div class="w3-col l3 w3-container w3-border-right">
-              <div class="w3-padding">
-                <h5>9526 <span class="w3-right"><i class="fa fa-fw fa-shopping-cart"></i></span></h5>
+          <div class="card-wrapper">>
+            <!-- Total Orders -->
+            <div class="card">
+              <div class="card-content">
+                <h5>{{ totalCommandes }} <span class="w3-right"><i class="fa fa-fw fa-shopping-cart"></i></span></h5>
                 <div class="progress w3-light" style="height:3px;">
                   <div class="progress-bar w3-info" style="width:55%;height:3px;"></div>
                 </div>
-                <p>Total Orders <span class="w3-right">+4.2% ↑</span></p>
+                <p>Total Orders</p>
               </div>
             </div>
-            <div class="w3-col l3 w3-container w3-border-right">
-              <div class="w3-padding">
-                <h5>8323 <span class="w3-right"><i class="fa fa-fw fa-usd"></i></span></h5>
+            
+            <!-- Delivered Orders -->
+            <div class="card">
+              <div class="card-content">
+                <h5>{{ deliveredCount }} <span class="w3-right"><i class="fa fa-fw fa-check-circle"></i></span></h5>
                 <div class="progress w3-light" style="height:3px;">
-                  <div class="progress-bar w3-success" style="width:55%;height:3px;"></div>
+                  <div class="progress-bar w3-success" [style.width]="(deliveredCount / totalCommandes) * 100 + '%'" style="height:3px;"></div>
                 </div>
-                <p>Total Revenue <span class="w3-right">+1.2% ↑</span></p>
+                <p>Delivered Orders</p>
               </div>
             </div>
-            <div class="w3-col l3 w3-container w3-border-right">
-              <div class="w3-padding">
-                <h5>6200 <span class="w3-right"><i class="fa fa-fw fa-eye"></i></span></h5>
+            
+            <!-- Pending Orders -->
+            <div class="card">
+              <div class="card-content">
+                <h5>{{ pendingCount }} <span class="w3-right"><i class="fa fa-fw fa-hourglass-half"></i></span></h5>
                 <div class="progress w3-light" style="height:3px;">
-                  <div class="progress-bar w3-warning" style="width:55%;height:3px;"></div>
+                  <div class="progress-bar w3-warning" [style.width]="(pendingCount / totalCommandes) * 100 + '%'" style="height:3px;"></div>
                 </div>
-                <p>Visitors <span class="w3-right">+5.2% ↑</span></p>
+                <p>Pending Orders</p>
               </div>
             </div>
-            <div class="w3-col l3 w3-container">
-              <div class="w3-padding">
-                <h5>5630 <span class="w3-right"><i class="fa fa-fw fa-envira"></i></span></h5>
-                <div class="progress w3-light" style="height:3px;">
-                  <div class="progress-bar w3-danger" style="width:55%;height:3px;"></div>
-                </div>
-                <p>Messages <span class="w3-right">+2.2% ↑</span></p>
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="w3-row-padding w3-stretch">
+        
+        <!-- <div class="w3-row-padding w3-stretch">
           <div class="w3-col l8">
             <div class="w3-white w3-round w3-margin-bottom w3-border" >
               <header class="w3-padding-large w3-large w3-border-bottom" style="font-weight: 500">Site Traffic</header>
@@ -187,8 +190,8 @@
               </table>
             </div>
           </div>
-        </div>
-        <div class="w3-white w3-round w3-margin-bottom w3-border" >
+        </div> -->
+        <!-- <div class="w3-white w3-round w3-margin-bottom w3-border" >
           <header class="w3-padding-large w3-large w3-border-bottom" style="font-weight: 500">Recent Order Tables</header>
           <div class="w3-responsive">
             <table class="w3-table w3-bordered">
@@ -273,7 +276,7 @@
               </tr>
             </table>
           </div>
-        </div>
+        </div> -->
       </div>
       <!-- <footer class="w3-padding w3-border-top w3-center w3-white w3-margin-top">
         <span class="w3-opacity">Powered with <span class="w3-text-red">♥</span> by <a href="https://w3mix.com" target="_blank"><strong>W3Mix.com</strong></a>.</span>

@@ -4,7 +4,9 @@
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                 <div class="card shadow-lg p-4" style="border-radius: 15px; background-color: #ffffff;">
                     <form class="text-center" (ngSubmit)="onSubmit()" #registerForm="ngForm">
-                        
+                        <div class="mb-4">
+                            <img src="../../assets/img/logo.png" class="img-fluid" alt="App Logo" style="max-width: 150px; animation: fadeIn 1s;">
+                          </div>
                         <div class="form-outline mb-4">
                             <input type="text" name="nom" [(ngModel)]="formData.nom" id="nom" class="form-control form-control-lg" placeholder="Nom Complet" required />
                         </div>
@@ -22,6 +24,10 @@
                         </div>
                         
                         <button type="submit" class="btn btn-primary btn-lg btn-block">S'inscrire</button>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">
+                            Vous avez déjà un compte?
+                            <a href="javascript:void(0)" class="link-primary" (click)="navigateToLogin()">Se Connecter</a>
+                        </p>
                     </form>                    
                 </div>
             </div>

@@ -1,0 +1,116 @@
+.welcome-banner {
+    background: linear-gradient(135deg, #9ab6d6, #6f89a7);
+    color: #ffffff;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-left: 20%;
+    margin-top: 3%;
+    margin-right: 3%;
+  }
+  
+  .welcome-banner:hover {
+    transform: scale(1.02);
+  }
+  
+  .welcome-banner::before, .welcome-banner::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    z-index: 1;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .welcome-banner::before {
+    top: -50px;
+    left: -50px;
+  }
+  
+  .welcome-banner::after {
+    bottom: -50px;
+    right: -50px;
+  }
+  
+  .welcome-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .welcome-content h2 {
+    font-size: 2em;
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  .welcome-content p {
+    font-size: 1.1em;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+  
+  .explore-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color:  #9ab6d6;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .explore-button:hover {
+    background-color: #f1f1f1;
+    color:  #9ab6d6;
+  }
+  .card-wrapper {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .card {
+    flex: 1;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-content {
+    padding: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .card h5 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    color: #007acc;
+  }
+  
+  .card-icon {
+    color:  #007acc;
+    font-size: 20px;
+    margin-left: 8px;
+  }
+  
+  .card p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 8px;
+  }
+  

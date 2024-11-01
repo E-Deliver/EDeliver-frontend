@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';  // Import your AuthService
 
@@ -80,5 +80,21 @@ export class CommandeService {
       });
       return this.http.get<any[]>(`${this.commandesUrl}/client/${clientId}/status/${statut}`, { headers });
   } 
-    
-}
+    // CommandeService.ts
+
+    searchCommandes(address?: string, date?: string, status?: string): Observable<any[]> {
+      let params = new HttpParams();
+      
+      if (address) {
+        params = params.set('address', address);
+      }
+      if (date) {
+        params = params.set('date', date);
+      }
+      if (status) {
+        params = params.set('status', status);
+      }
+  
+      return this.http.get<any[]>(`${this.apiUrl}/search`, { params });
+    }
+  }
